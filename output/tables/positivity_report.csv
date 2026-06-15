@@ -1,0 +1,2 @@
+ps_min,ps_max,pct_outside_report_bounds,report_bounds,trim_bounds,n_trimmed,n_kept
+0.13859163638534197,0.8134260388208268,0.0,"[0.05, 0.95]","[0.02, 0.98]",0,2008

@@ -1,0 +1,15 @@
+covariate,smd_unadjusted,smd_weighted
+Age,0.294,0.0426
+Male,0.0727,0.0062
+Prior admissions,0.0629,0.0108
+NYHA class,0.0797,0.0076
+Killip grade,0.0224,0.0249
+BNP,0.2138,0.024
+Creatinine,0.2189,0.0048
+eGFR,0.1575,0.0099
+Charlson index,0.0983,0.0216
+Heart rate,0.2562,0.0365
+SBP,0.4096,0.0458
+DBP,0.066,0.0236
+Potassium,0.0367,0.0052
+Sodium,0.0983,0.014

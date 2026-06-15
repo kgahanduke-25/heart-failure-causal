@@ -1,0 +1,35 @@
+---
+title: "Project decision logic: from dataset to estimand"
+---
+flowchart TD
+    A["Dataset:<br/>Zigong HF cohort (n=2,008)"]
+    A -->|"no treatment-effect work exists<br/>on this dataset; matches RWE goal"| C["Causal inference"]
+    A -.->|"literature saturated: readmission XGBoost,<br/>hyperparameter comparisons,<br/>prioritization tool already published"| P["Predictive ML"]
+
+    C -->|"well-defined, manipulable intervention;<br/>has equipoise + an RCT benchmark"| D["Drug exposure"]
+    C -.->|"not manipulable; collider"| R1["Admission route / department"]
+
+    D -->|"998 vs 1,010 balanced; DIG-trial benchmark;<br/>oral matches what DIG randomized"| DG["Oral digoxin<br/>(primary exposure)"]
+    D -.->|"1,833/2,008 treated, only 175 unexposed —<br/>thin comparator; muddier benchmark"| SP["Spironolactone"]
+    D -.->|"pools IV deslanoside; breaks DIG benchmark"| GLY["Any glycoside<br/>(demoted to sensitivity)"]
+
+    DG -->|"validated 0/1 indicators, complete;<br/>competing event handled by definition"| CIF["Fixed-horizon<br/>competing-risks CIF"]
+    DG -.->|"16/57 deaths untimed; no follow-up clock for<br/>1,050/1,178 event-free; 78 indicator–time discordant"| FG["Fine–Gray /<br/>cause-specific Cox"]
+
+    CIF -->|"773 events — well-powered"| OUT["6-month readmission<br/>= causal endpoint"]
+    CIF -.->|"57 events — underpowered<br/>for doubly-robust estimation"| MORT["6-month mortality<br/>= descriptive only"]
+
+    OUT -->|"LVEF 68.4% missing; type.of.heart.failure is<br/>anatomical and does not rescue it"| POOL["Pooled estimate<br/>(EF missingness = limitation)"]
+    POOL -.->|"cannot define HFrEF/HFpEF reliably"| STRAT["Stratify by HFrEF / HFpEF"]
+
+    POOL -->|"doubly-robust + flexible nuisances"| EST["DR estimation:<br/>TMLE / AIPW + Super Learner"]
+    EST -->|"check identification holds"| DIAG["Diagnostics:<br/>overlap · balance · positivity"]
+    DIAG -->|"probe robustness"| SENS["Sensitivity: E-value ·<br/>cause-specific vs. subdistribution ·<br/>any-glycoside rerun ·<br/>naive vs. adjusted vs. DIG"]
+
+    classDef chosen fill:#dbeafe,stroke:#2b6cb0,color:#13294b,stroke-width:1.5px;
+    classDef rejected fill:#eeeeee,stroke:#bbbbbb,color:#888888,stroke-dasharray:4 3;
+    classDef demoted fill:#f3efe0,stroke:#cebf80,color:#8a7b3a,stroke-dasharray:2 2;
+
+    class A,C,D,DG,CIF,OUT,POOL,EST,DIAG,SENS chosen;
+    class P,R1,SP,FG,STRAT rejected;
+    class GLY,MORT demoted;

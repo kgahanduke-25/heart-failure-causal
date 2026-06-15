@@ -1,0 +1,4 @@
+analysis,risk_treated,risk_control,RD,RD_lcl,RD_ucl,RR,RR_lcl,RR_ucl,n,evalue_point,evalue_ci
+Primary: AIPW subdistribution (digoxin),0.4275,0.3439,0.0835,0.0393,0.1278,1.2429,1.1066,1.396,2008,1.792,1.45
+Cause-specific (exclude 57 deaths),0.4343,0.3587,0.0756,0.0305,0.1207,1.2108,1.0792,1.3585,1951,,
+Any cardiac glycoside,0.4072,0.3352,0.072,0.0237,0.1203,1.2148,1.0598,1.3925,2008,,

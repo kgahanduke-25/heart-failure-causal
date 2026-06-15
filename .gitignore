@@ -1,0 +1,46 @@
+# =====================================================================
+# PhysioNet Restricted Health Data License 1.5.0 — RAW DATA NEVER COMMITTED
+# Term 3: do not share access to restricted data with anyone else.
+# Committing these files to a public repo = sharing = license violation.
+# =====================================================================
+
+# Restricted source data and any derived patient-level data
+data/raw/
+data/derived/
+
+# Catch-all for tabular data anywhere in the tree
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.rds
+*.RData
+*.dta
+*.sav
+
+# Patient-level extracts of any kind
+**/patient_level/
+**/extracts/
+*_rowlevel.*
+
+# Allow-list: aggregate result tables (NO patient rows) and dir placeholders
+!output/tables/*.csv
+!data/raw/.gitkeep
+!data/derived/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# OS / editor
+.DS_Store
+*.swp
+
+# portable git bundle (local backup, not part of the repo)
+*.bundle

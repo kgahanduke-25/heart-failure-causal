@@ -1,0 +1,128 @@
+{
+  "primary_digoxin_subdist": {
+    "n": 2008,
+    "risk_treated": 0.4274733341863097,
+    "risk_control": 0.34392929608287387,
+    "RD": 0.0835440381034358,
+    "RD_se": 0.022560171746728086,
+    "RD_lcl": 0.03932691398443421,
+    "RD_ucl": 0.12776116222243739,
+    "RR": 1.2429105024054272,
+    "logRR_se": 0.05925923218318073,
+    "RR_lcl": 1.106619472252232,
+    "RR_ucl": 1.3959871082384123,
+    "positivity": {
+      "ps_min": 0.13859163638534197,
+      "ps_max": 0.8134260388208268,
+      "pct_outside_report_bounds": 0.0,
+      "report_bounds": [
+        0.05,
+        0.95
+      ],
+      "trim_bounds": [
+        0.02,
+        0.98
+      ],
+      "n_trimmed": 0,
+      "n_kept": 2008
+    }
+  },
+  "causespecific_digoxin": {
+    "n": 1951,
+    "risk_treated": 0.4343068234797222,
+    "risk_control": 0.35868565135670794,
+    "RD": 0.07562117212301428,
+    "RD_se": 0.02300262196248339,
+    "RD_lcl": 0.030536861515976815,
+    "RD_ucl": 0.12070548273005174,
+    "RR": 1.2108285398007461,
+    "logRR_se": 0.058730389241032674,
+    "RR_lcl": 1.079173446898604,
+    "RR_ucl": 1.3585450578027036,
+    "positivity": {
+      "ps_min": 0.15487136541853222,
+      "ps_max": 0.8148974476515674,
+      "pct_outside_report_bounds": 0.0,
+      "report_bounds": [
+        0.05,
+        0.95
+      ],
+      "trim_bounds": [
+        0.02,
+        0.98
+      ],
+      "n_trimmed": 0,
+      "n_kept": 1951
+    }
+  },
+  "secondary_anyglycoside": {
+    "n": 2008,
+    "risk_treated": 0.4072233238700068,
+    "risk_control": 0.33521165840956935,
+    "RD": 0.07201166546043747,
+    "RD_se": 0.02465054478308298,
+    "RD_lcl": 0.02369748547496519,
+    "RD_ucl": 0.12032584544590974,
+    "RR": 1.214824465837796,
+    "logRR_se": 0.0696463196726984,
+    "RR_lcl": 1.0598160078393142,
+    "RR_ucl": 1.3925044270720641,
+    "positivity": {
+      "ps_min": 0.14861576080966166,
+      "ps_max": 0.9106764158853393,
+      "pct_outside_report_bounds": 0.0,
+      "report_bounds": [
+        0.05,
+        0.95
+      ],
+      "trim_bounds": [
+        0.02,
+        0.98
+      ],
+      "n_trimmed": 0,
+      "n_kept": 2008
+    }
+  },
+  "naive_digoxin": {
+    "risk_treated": 0.42985971943887774,
+    "risk_control": 0.3405940594059406,
+    "RD": 0.08926566003293712,
+    "RD_lcl": 0.046867984344074416,
+    "RD_ucl": 0.13166333572179983,
+    "RR": 1.2620881297478677,
+    "RR_lcl": 1.1287415840788462,
+    "RR_ucl": 1.411187883673473
+  },
+  "evalue_primary": {
+    "evalue_point": 1.7923793500977094,
+    "evalue_ci": 1.4501120982510685
+  },
+  "dig_benchmark": {
+    "label": "DIG trial (NEJM 1997) \u2014 HF hospitalization",
+    "RR": 0.72,
+    "RR_lcl": 0.66,
+    "RR_ucl": 0.79,
+    "mortality_RR": 0.99,
+    "note": "RCT, ambulatory, reduced EF, sinus rhythm \u2014 different population/outcome than 6-mo all-cause readmission"
+  },
+  "mortality_descriptive": {
+    "death6m_digoxin": 0.01903807615230461,
+    "death6m_control": 0.03762376237623762,
+    "n_deaths_total": 57
+  },
+  "positivity": {
+    "ps_min": 0.13859163638534197,
+    "ps_max": 0.8134260388208268,
+    "pct_outside_report_bounds": 0.0,
+    "report_bounds": [
+      0.05,
+      0.95
+    ],
+    "trim_bounds": [
+      0.02,
+      0.98
+    ],
+    "n_trimmed": 0,
+    "n_kept": 2008
+  }
+}

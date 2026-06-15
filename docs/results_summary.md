@@ -41,7 +41,7 @@ Estimator: 5-fold cross-fitted AIPW; propensity and outcome nuisances each a sta
 | **AIPW adjusted (primary)** | **1.24** | **1.11, 1.40** | Primary |
 | Cause-specific (exclude 57 deaths) | 1.21 | 1.08, 1.36 | **Agrees** with subdistribution |
 | Any cardiac glycoside | 1.21 | 1.06, 1.39 | Consistent |
-| DIG benchmark (HF hosp., RCT) | 0.72 | 0.66, 0.79 | External; opposite direction |
+| DIG benchmark (HF hosp., RCT) | 0.72 | 0.66, 0.79 | External directional reference — not like-for-like |
 
 **(i) E-value.** For the point estimate, **E-value = 1.79**; for the CI bound nearest the null, **1.45**. An unmeasured confounder would need to be associated with both digoxin use and readmission by a risk ratio of **≥ 1.79** (point) / **≥ 1.45** (CI) — *above and beyond* every measured covariate — to fully explain away the association. Atrial fibrillation is a plausible candidate of roughly this strength (it is both a strong indication for digoxin and an independent readmission driver), so the finding is **not robust** to realistic unmeasured confounding.
 
@@ -49,7 +49,7 @@ Estimator: 5-fold cross-fitted AIPW; propensity and outcome nuisances each a sta
 
 **(iii) Any-glycoside.** Adding deslanoside leaves the estimate essentially unchanged (RR 1.21).
 
-**(iv) Benchmark contrast.** The naive and adjusted estimates are nearly identical (1.26 → 1.24): the measured confounders explain almost none of the crude association. Combined with the direction reversal vs. the DIG RCT, this pattern is the signature of **confounding by indication** that the measured covariates do not capture — most plausibly atrial fibrillation and the lack of medication-timing/dose data. We report what the data show and do **not** tune toward the benchmark.
+**(iv) Benchmark contrast.** The naive and adjusted estimates are nearly identical (1.26 → 1.24): the measured confounders explain almost none of the crude association. Combined with the direction reversal vs. the DIG RCT, this pattern is the signature of **confounding by indication** that the measured covariates do not capture — most plausibly atrial fibrillation and the lack of medication-timing/dose data. We report what the data show and do **not** tune toward the benchmark. Note that DIG is used as an external *directional* reference, not a like-for-like comparator: it enrolled ambulatory, predominantly reduced-EF, sinus-rhythm patients and measured HF-specific hospitalization, whereas this cohort is hospitalized and mixed-EF with an all-cause readmission outcome. The comparison therefore concerns direction of effect, not magnitude.
 
 **(v) Mortality (descriptive only).** Crude 6-month mortality was 1.9% (digoxin) vs. 3.8% (no digoxin); 57 deaths total. Presented as a cumulative-incidence figure (`mortality_cif.png`) for context only — **no causal claim**.
 
@@ -61,6 +61,7 @@ Estimator: 5-fold cross-fitted AIPW; propensity and outcome nuisances each a sta
 4. **No medication timing, dose, or duration.** Exposure is an "ever during admission" binary; immortal-time and dose-response structure cannot be modeled.
 5. **57 deaths** limit power for the competing-risk contrast; the mortality analysis is descriptive.
 6. Single imputation (with missingness indicators) was used; **MICE** is the planned refinement.
+7. Estimates reflect a single 5-fold cross-fit split (seed 42); multi-seed stabilization is a planned refinement alongside MICE.
 
 ## Bottom line
 

@@ -15,7 +15,7 @@ The estimate itself: after doubly-robust adjustment, in-hospital digoxin is asso
 Three signals say this is confounding, not causation:
 
 1. **Adjustment moves almost nothing** — naive 1.26 -> adjusted 1.24. The measured confounders explain virtually none of the crude association, the fingerprint of an open backdoor they do not capture.
-2. **It reverses the RCT** — the randomized DIG trial *reduced* HF hospitalization (RR ~ 0.72). An observational estimate pointing the opposite way is a red flag, not a discovery.
+2. **It points opposite to the DIG randomized benchmark** — DIG *reduced* HF hospitalization (RR ~ 0.72). DIG is an **external directional reference, not a like-for-like comparator**: it enrolled ambulatory, predominantly reduced-EF, sinus-rhythm patients and measured HF-specific hospitalization, whereas this cohort is hospitalized and mixed-EF and the outcome is all-cause readmission. The contrast therefore speaks to *direction*, not magnitude — and an observational estimate pointing the opposite way is a red flag, not a discovery.
 3. **It is fragile by exactly the right amount** — **E-value 1.79** (point) / **1.45** (CI bound). A single unmeasured confounder of that modest strength explains the result away, and **atrial fibrillation** — the dominant indication for digoxin and an independent readmission driver — is **not recorded anywhere in this dataset** (Step 0 verdict: not measurable -> carried by the E-value).
 
 The most defensible reading is **residual confounding by indication**, not causal harm. This is a methods-demonstration / hypothesis-generating analysis. See [`docs/results_summary.md`](docs/results_summary.md).
@@ -34,6 +34,7 @@ A plain-language walkthrough of how the causal-inference approach works in this 
 - **No medication timing/dose/duration** — exposure is an "ever-during-admission" binary.
 - **57 deaths** limit the competing-risk contrast; mortality is reported descriptively only.
 - Single imputation with missingness indicators; **MICE** is the planned refinement.
+- Estimates reflect a single 5-fold cross-fit split (seed 42); multi-seed stabilization is a planned refinement alongside MICE.
 
 ## Methods at a glance
 
@@ -42,7 +43,7 @@ A plain-language walkthrough of how the causal-inference approach works in this 
 | Design | Target-trial emulation |
 | Exposure | Oral digoxin (`Digoxin tablet`); secondary: any cardiac glycoside |
 | Outcome | 6-month all-cause readmission (subdistribution primary; cause-specific secondary) |
-| Confounders | Admission-time only: age, sex, NYHA, Killip, BNP, creatinine, eGFR, Charlson, vitals, K/Na, prior admissions |
+| Confounders | Admission-time only (14): age, sex (male), prior admissions, NYHA class, Killip grade, BNP, creatinine, eGFR, Charlson index, heart rate, SBP, DBP, potassium, sodium |
 | Estimator | Cross-fitted AIPW (5-fold); Super-Learner (penalized logistic + GBM + RF) for both nuisances; influence-function CIs |
 | Diagnostics | PS overlap, positivity report, SMD love plot |
 | Sensitivity | E-value; cause-specific vs. subdistribution; any-glycoside; DIG benchmark forest; descriptive mortality CIF |

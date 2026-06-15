@@ -19,7 +19,7 @@ Among patients hospitalized for heart failure, what is the effect of **in-hospit
 - **Secondary (cause-specific) view:** those 57 are excluded and the estimate recomputed. Because digoxin is expected to be mortality-neutral, the two views should agree; divergence would flag residual confounding or differential censoring.
 
 ## Confounders W (admission-time only — no post-treatment variables)
-age (decade midpoint from `ageCat`), sex, prior admissions (`visit.times`), HF severity (NYHA class, Killip grade, BNP), renal function (creatinine, eGFR), Charlson comorbidity index (`CCI.score`), admission vitals (heart rate `pulse`, SBP, DBP), and electrolytes (potassium, sodium). Implausible zero vitals were set to missing before imputation.
+The 14 admission-time confounders: age, sex (male), prior admissions, NYHA class, Killip grade, BNP, creatinine, eGFR, Charlson index, heart rate, SBP, DBP, potassium, and sodium. (Source columns: age = decade midpoint from `ageCat`; prior admissions = `visit.times`; Charlson index = `CCI.score`; heart rate = `pulse`.) Implausible zero vitals were set to missing before imputation.
 
 ## Step 0 — Atrial-fibrillation confounder: AUTO-DECISION
 
